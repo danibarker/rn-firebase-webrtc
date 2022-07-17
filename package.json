@@ -1,6 +1,6 @@
 {
   "name": "rn-firebase-webrtc",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "",
   "main": "index.js",
   "keywords": [
@@ -20,7 +20,7 @@
     "react-native-web": "0.17.7",
     "react-native-webrtc": "^1.100.1"
   },
-  "types": "./dist/main.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/danibarker/rn-firebase-webrtc.git"
