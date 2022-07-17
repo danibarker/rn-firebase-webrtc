@@ -4,7 +4,6 @@ import {
   onSnapshot,
   setDoc,
   addDoc,
-  Firestore,
 } from "firebase/firestore";
 import {
   RTCPeerConnection,
@@ -19,7 +18,6 @@ const configuration = {
   ],
   iceCandidatePoolSize: 10,
 };
-export const FirestoreType = Firestore;
 /**
  * Get the local peer connection and creates an offer inside the
  * room collection.  Sets up listeners for the callee candidate collection
