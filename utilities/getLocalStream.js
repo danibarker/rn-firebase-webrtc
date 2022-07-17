@@ -1,8 +1,6 @@
 import { mediaDevices } from "react-native-webrtc";
 
-export const getLocalStream = async (role) => {
-  // isFront will determine if the initial camera should face user or environment
-  console.log(`${role} is getLocalStream`);
+export const getLocalStream = async () => {
   const isFront = true;
   const devices = await mediaDevices.enumerateDevices();
 
@@ -23,6 +21,10 @@ export const getLocalStream = async (role) => {
       optional: videoSourceId ? [{ sourceId: videoSourceId }] : [],
     },
   };
-  const newStream = await mediaDevices.getUserMedia(constraints);
-  return newStream;
+  try {
+    const newStream = await mediaDevices.getUserMedia(constraints);
+    return newStream;
+  } catch (error) {
+    console.error("error", error);
+  }
 };

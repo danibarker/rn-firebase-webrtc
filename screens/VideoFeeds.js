@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import { RTCView } from "react-native-webrtc";
 
-export function VideoFeeds({
-  remoteStream,
-  localStream,
-  videoFeedsStyles,
-  caller,
-}) {
+export function VideoFeeds({ remoteStream, localStream, videoFeedsStyles }) {
   return (
     <View style={videoFeedsStyles.rtcContainer}>
       <View style={videoFeedsStyles.rtcviewRemote}>

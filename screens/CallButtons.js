@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Button, View, Pressable, Text } from "react-native";
+import { View, Pressable, Text } from "react-native";
 
 export function CallButtons({
   onBackPress,
@@ -12,7 +12,7 @@ export function CallButtons({
   return (
     <View style={callButtonsStyles.container}>
       <Pressable style={callButtonsStyles.buttons} onPress={onBackPress}>
-        <Text style={callButtonsStyles.buttonText}>Click to stop call</Text>
+        <Text style={callButtonsStyles.buttonText}>Stop call</Text>
       </Pressable>
       <>
         {!localStream && (

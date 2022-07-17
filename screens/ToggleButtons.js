@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Button, View, Pressable, Text } from "react-native";
+import { View, Pressable, Text } from "react-native";
 
 export const ToggleButtons = ({
   remoteStream,
@@ -15,7 +15,6 @@ export const ToggleButtons = ({
       return;
     }
     localStream.getAudioTracks().forEach((track) => {
-      // console.log(track.enabled ? 'muting' : 'unmuting', ' local track', track);
       track.enabled = !track.enabled;
       setIsMuted(!track.enabled);
     });

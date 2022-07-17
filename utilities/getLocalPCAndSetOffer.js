@@ -28,7 +28,6 @@ export const getLocalPCAndSetOffer = async (
   callerCandidatesCollectionName,
   setRemoteStream
 ) => {
-  console.log("startCall id", roomId);
   const collectionRef = collection(db, roomCollectionName);
   const roomRef = doc(collectionRef, roomId);
   await setDoc(roomRef, { init: true });
@@ -40,18 +39,16 @@ export const getLocalPCAndSetOffer = async (
   );
   localPC.onicecandidate = async (e) => {
     if (!e.candidate) {
-      console.log("Start Call Got final candidate!");
       return;
     }
-    console.log("Start Call Got candidate!");
-    await addDoc(callerCandidatesCollection, e.candidate.toJSON());
+    try {
+      await addDoc(callerCandidatesCollection, e.candidate.toJSON());
+    } catch (error) {
+      console.error("error", error);
+    }
   };
   localPC.onaddstream = (e) => {
     if (e.stream && remoteStream !== e.stream) {
-      console.log(
-        "Caller RemotePC received the stream call #tracks",
-        e.stream._tracks.length
-      );
       setRemoteStream(e.stream);
     }
   };
@@ -65,7 +62,11 @@ export const getLocalPCAndSetOffer = async (
     const data = snapshot.data();
     if (!localPC.currentRemoteDescription && data.answer) {
       const rtcSessionDescription = new RTCSessionDescription(data.answer);
-      await localPC.setRemoteDescription(rtcSessionDescription);
+      try {
+        await localPC.setRemoteDescription(rtcSessionDescription);
+      } catch (error) {
+        console.error(error);
+      }
     }
   });
 
@@ -75,10 +76,13 @@ export const getLocalPCAndSetOffer = async (
   );
   onSnapshot(calleeCollection, async (snapshot) => {
     snapshot.docChanges().forEach(async (change) => {
-      console.log("calleeCandidatesCollection change", change.type);
       if (change.type === "added") {
         let data = change.doc.data();
-        await localPC.addIceCandidate(new RTCIceCandidate(data));
+        try {
+          await localPC.addIceCandidate(new RTCIceCandidate(data));
+        } catch (error) {
+          console.error(error);
+        }
       }
     });
   });

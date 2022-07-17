@@ -1,14 +1,16 @@
-Only works with firebase V9 and higher, works with Expo v45
+# React Native Firebase WebRTC Video Conferencing
 
 Sorry it's not documented well yet, I'm working on it.
 
+Parts of the code based on https://dipanshkhandelwal.medium.com/video-calling-using-firebase-and-webrtc-14cc2d4afceb
+
 ## Requirements
 
-Needs expo's config-plugins, can be found here:
+To use with Expo, needs expo's config-plugins, can be found here:
 
 https://github.com/expo/config-plugins/tree/main/packages/react-native-webrtc
 
-For firebase v9.9 and possibly other versions:
+For firebase v9.9 and possibly some earlier versions:
 
 Add a metro.config.js file to your project, with the following content:
 
