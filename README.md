@@ -1,7 +1,5 @@
 # React Native Firebase WebRTC Video Conferencing
 
-Sorry it's not documented well yet, I'm working on it.
-
 Parts of the code based on https://dipanshkhandelwal.medium.com/video-calling-using-firebase-and-webrtc-14cc2d4afceb
 
 ## Installation
