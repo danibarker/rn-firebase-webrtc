@@ -231,7 +231,7 @@ export const toggleButtonStyles = StyleSheet.create({
 });
 ```
 
-## Requirements
+## Notes
 
 To use with Expo, needs expo's config-plugins, can be found here:
 
