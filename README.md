@@ -237,6 +237,8 @@ To use with Expo, needs expo's config-plugins, can be found here:
 
 https://github.com/expo/config-plugins/tree/main/packages/react-native-webrtc
 
+You'll have to use a custom client, won't work with Expo Go, tested and works well using EAS Build
+
 For firebase v9.9 and possibly some earlier versions:
 
 Add a metro.config.js file to your project, with the following content:
@@ -249,4 +251,5 @@ const defaultConfig = getDefaultConfig(__dirname);
 defaultConfig.resolver.assetExts.push("cjs");
 
 module.exports = defaultConfig;
+
 ```
