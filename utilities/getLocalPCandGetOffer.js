@@ -19,6 +19,20 @@ const configuration = {
   ],
   iceCandidatePoolSize: 10,
 };
+/**
+ * Get local peer connection and get offer from firestore.
+ * Creates an answer and sets it in the room collection.
+ * Sets up listeners for the caller candidate collection
+ * @param {string} theRoomId
+ * @param {Firestore} db
+ * @param {MediaStream} localStream
+ * @param {MediaStream} remoteStream
+ * @param {string} roomCollectionName
+ * @param {string} calleeCandidatesCollectionName
+ * @param {string} callerCandidatesCollectionName
+ * @param {React.Dispatch<React.SetStateAction<undefined>>} setRemoteStream
+ * @returns {Promise<RTCPeerConnection>}
+ */
 export const getLocalPCandGetOffer = async (
   theRoomId,
   db,

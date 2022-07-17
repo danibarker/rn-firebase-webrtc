@@ -1,5 +1,8 @@
 import { mediaDevices } from "react-native-webrtc";
-
+/**
+ * Gets the local stream from the user's device
+ * @returns {Promise<MediaStream>}
+ */
 export const getLocalStream = async () => {
   const isFront = true;
   const devices = await mediaDevices.enumerateDevices();

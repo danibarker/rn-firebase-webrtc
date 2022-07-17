@@ -4,6 +4,7 @@ import {
   onSnapshot,
   setDoc,
   addDoc,
+  Firestore,
 } from "firebase/firestore";
 import {
   RTCPeerConnection,
@@ -18,6 +19,20 @@ const configuration = {
   ],
   iceCandidatePoolSize: 10,
 };
+export const FirestoreType = Firestore;
+/**
+ * Get the local peer connection and creates an offer inside the
+ * room collection.  Sets up listeners for the callee candidate collection
+ * @param {Firestore} db
+ * @param {string} roomId
+ * @param {MediaStream} localStream
+ * @param {MediaStream} remoteStream
+ * @param {string} roomCollectionName
+ * @param {string} calleeCandidatesCollectionName
+ * @param {string} callerCandidatesCollectionName
+ * @param {React.Dispatch<React.SetStateAction<undefined>>} setRemoteStream
+ * @returns {Promise<RTCPeerConnection>}
+ */
 export const getLocalPCAndSetOffer = async (
   db,
   roomId,

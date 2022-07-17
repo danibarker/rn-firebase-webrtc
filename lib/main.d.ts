@@ -1,9 +1,9 @@
-type CallButtons = () => JSX.Element;
+import { Firestore } from "firebase";
 type ToggleButtons = () => JSX.Element;
 type VideoFeeds = () => JSX.Element;
 type getLocalStream = () => Promise<MediaStream>;
 type getLocalPCAndSetOffer = (
-  db: firebase.firestore.Firestore,
+  db: Firestore,
   roomId: string,
   localStream: MediaStream,
   remoteStream: MediaStream,
@@ -14,7 +14,7 @@ type getLocalPCAndSetOffer = (
 ) => Promise<RTCPeerConnection>;
 type getLocalPCAndGetOffer = (
   theRoomId: string,
-  db: firebase.firestore.Firestore,
+  db: Firestore,
   localStream: MediaStream,
   remoteStream: MediaStream,
   roomCollectionName: string,
